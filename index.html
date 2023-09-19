@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap" rel="stylesheet">
+    <title>WEBPIC</title>
+</head>
+<body>  
+    <div class="container-fluid">
+        <header class="d-flex justify-content-between">
+            <div class="logo d-flex">
+                <ion-icon name="camera-outline"></ion-icon>
+                <h1>WebPic</h1>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle user_icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <ion-icon name="person-outline"></ion-icon>
+                </button>
+                <ul class="dropdown-menu login">
+                  <p>E-mail</p>
+                  <li><input type="email"</li>
+                  <p>Senha</p>
+                  <li><input type="password"</li>
+                  <li><button class="login_submit">Login</button></li>
+                  <li><a>Cadastre-se aqui</a></li>
+                </ul>
+                <button class="create_menu" onclick="menu()">
+                    <ion-icon name="apps-outline"></ion-icon>
+                </button>
+              </div>
+        </header>
+
+        <main>
+            <div class="box_images d-flex justify-content-center align-items-center">
+                <div class="main_menu disabled_menu">
+                    <ul class="nav_menu">
+                        <h1>Categories</h1>
+                        <li>Animals</li>
+                        <li>Vaporwave</li>
+                        <li>Landscape</li>
+                    </ul>
+                    <div class="icons d-flex justify-content-center">
+                        <ion-icon name="logo-linkedin"></ion-icon>
+                        <ion-icon name="logo-instagram"></ion-icon>
+                        <ion-icon name="logo-github"></ion-icon>
+                    </div>
+                </div>
+                <div class="content_show d-flex">
+                    <button class="slide_left" onclick="slideshow()">
+                        <ion-icon name="chevron-back-outline"></ion-icon>
+                    </button>
+                    <button class="expand_img" onclick="expand()">
+                        <div class="image_module"></div>
+                    </button>
+                    <button class="slide_right" onclick="slideshowRight()">
+                        <ion-icon name="chevron-forward-outline"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
