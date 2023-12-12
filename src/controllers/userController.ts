@@ -1,6 +1,6 @@
 import {Request,Response, NextFunction} from 'express';
 import Users from '../models/Users'
-import bcrypt from 'bcryptjs'
+import bcryptjs from 'bcryptjs'
 
 
 
@@ -23,7 +23,7 @@ export const onUser = async(req:Request,res:Response,next:NextFunction)=> {
             })
 
             if (userExist) {
-                const passwordMatch = await bcrypt.compare(password,userExist.password)
+                const passwordMatch = await bcryptjs.compare(password,userExist.password)
                 if (passwordMatch) {
                     if(req.session) {
                         let nameSesh=req.session.username=userExist.username
