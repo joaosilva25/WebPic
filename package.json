@@ -42,7 +42,8 @@
   },
   "scripts": {
     "test": "set NODE_ENV=test& jest --runInBand",
-    "start": "nodemon -e ts,json,mustache,css src/server.ts"
+    "start-dev": "nodemon -e ts,json,mustache,css src/server.ts",
+    "start": "tsc && node dist/server.js"
   },
   "author": "",
   "license": "ISC",
