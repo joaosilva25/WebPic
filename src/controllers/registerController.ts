@@ -1,5 +1,5 @@
 import {Request, Response} from 'express'
-import bcrypt from 'bcrypt'
+import bcryptjs from 'bcryptjs'
 import Users from '../models/Users'
 
 export const showPageRegister=async(req:Request,res:Response) => {
@@ -22,7 +22,7 @@ export const createUser=async(req:Request,res:Response) => {
                 ]
             })
 
-            const hash=bcrypt.hashSync(password,10)
+            const hash=bcryptjs.hashSync(password,10)
 
             if(!showUsers) {
                 console.log('Hash antes do create:', hash);

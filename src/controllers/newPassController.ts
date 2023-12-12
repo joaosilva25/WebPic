@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 import Users from '../models/Users';
-import bcrypt from 'bcrypt'
+import bcryptjs from 'bcryptjs'
 import {NextFunction, Request,Response} from 'express';
 
 
@@ -223,7 +223,7 @@ export const createNewPass=async(req:Request, res:Response)=> {
 
     try {
         if(newPass) {
-            passHash= bcrypt.hashSync(newPass,10)
+            passHash= bcryptjs.hashSync(newPass,10)
         }
 
         if (req.session) {
