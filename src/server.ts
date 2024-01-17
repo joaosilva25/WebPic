@@ -13,6 +13,7 @@ mongoConnect()
 
 const Server = express()
 
+
 const MemoryStore = createMemoryStore(session);
 
 
@@ -28,11 +29,10 @@ Server.use(session({
     }
 }))
 
+Server.set('view engine', 'mustache');
+Server.set('views',path.join(path.join(__dirname,'views')));
+Server.engine('mustache',mustache())
 
-Server.set('view engine', 'mustache')
-Server.set('views',path.join(__dirname,'views'))
-Server.set('views',path.join(__dirname,'dist/views'))
-Server.engine('mustache', mustache())
 
 
 Server.use(express.static(path.join(__dirname, '../public')))
