@@ -19,6 +19,6 @@ export const schema= new Schema<UserType>({
 const modelName:string = 'users';
 
 
-export default (connection && connection.models[modelName])?? model<UserType>(modelName,schema)
+export default (connection && connection.models[modelName])?? model<UserType>(modelName,schema,'users')
 
 
