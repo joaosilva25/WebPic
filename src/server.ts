@@ -1,7 +1,7 @@
 import express,{Request, Response} from 'express';
 import dotenv from 'dotenv'
 import path from 'path';
-import homeRouter from '../src/routes/home'
+import appRoutes from './routes/appRoutes'
 import mustache from 'mustache-express'
 import { mongoConnect } from './database/mongo';
 import passport from 'passport'
@@ -39,7 +39,7 @@ Server.use(express.urlencoded({extended:true}))
 
 Server.use(passport.initialize())
 
-Server.use(homeRouter)
+Server.use(appRoutes)
 
 Server.use((req:Request, res:Response) => {
     res.status(404)
