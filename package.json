@@ -40,7 +40,6 @@
     "ts-jest": "^29.1.1"
   },
   "scripts": {
-    "test": "set NODE_ENV=test& jest --runInBand",
     "start-dev": "nodemon -e ts,json,mustache,css src/server.ts",
     "start": "node dist/server.js"
   },
