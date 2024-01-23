@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap" rel="stylesheet">
+    <title>WEBPIC</title>
+</head>
+<body>  
+    <div class="container-fluid">
+        <header class="d-flex justify-content-between">
+            <a href='/'>
+                <div class="logo d-flex">
+                    <ion-icon name="camera-outline"></ion-icon>
+                    <h1>WebPic</h1>
+                    {{#showAlertUser}}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>{{msgForUser}}</strong>
+                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {{/showAlertUser}}
+                </div>
+            </a>
+            
+            <div class="dropdown d-flex">
+                {{#showUserForm}}<button class="btn btn-secondary dropdown-toggle user_icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <ion-icon name="person-outline"></ion-icon>
+                </button>
+                {{/showUserForm}}
+                {{^showUserForm}}
+                    <ion-icon class="logged_User" name="person-circle-outline"></ion-icon>
+                {{/showUserForm}}
+                {{#showElements}}<p class="username_session">{{showName}}</p>{{/showElements}}
+                {{#showUserForm}}<form method="POST" action="/login">
+                    <ul class="dropdown-menu login">
+                        <p>Email</p>
+                        <li><input class="email" type="email" name='email'></li>
+                        <p>Password</p>
+                        <li><input class="senha" type="password" name='password'</li>
+                        <li class="forgotLink"><a href="/new-password">Forgot my password</a></li>
+                        <li><input type="submit" class="login_submit" value="Login"></li>
+                        <li><a href="/register" class="register">Register here</a></li>
+                    </ul>
+                {{/showUserForm}}</form>
+                <button class="create_menu" onclick="menu()">
+                    <ion-icon name="apps-outline"></ion-icon>
+                </button>
+                {{#showElements}}<a href="/logout"><ion-icon class="logout_icon" name="log-out-outline"></ion-icon></a>{{/showElements}}
+            </div>
+        </header>
