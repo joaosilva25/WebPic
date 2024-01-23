@@ -31,11 +31,13 @@ Server.use(session({
 
 Server.engine('mustache', mustacheExpress());
 Server.set('view engine', 'mustache');
-Server.set('views', __dirname + '/views');
+Server.set('views', path.join(__dirname, 'views'));
 
 
 Server.use(express.static(path.join(__dirname, '../public')))
 Server.use(express.urlencoded({extended:true}))
+Server.use('/node_modules', express.static(__dirname + '/node_modules'));
+
 
 Server.use(passport.initialize())
 
