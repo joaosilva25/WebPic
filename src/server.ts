@@ -2,7 +2,7 @@ import express,{Request, Response} from 'express';
 import dotenv from 'dotenv'
 import path from 'path';
 import appRoutes from './routes/appRoutes'
-import mustacheExpress from 'mustache-express'
+import mustache from 'mustache-express'
 import { mongoConnect } from './database/mongo';
 import passport from 'passport'
 import session from 'express-session';
@@ -29,9 +29,9 @@ Server.use(session({
     }
 }))
 
-Server.engine('mustache', mustacheExpress());
 Server.set('view engine', 'mustache');
-Server.set('views', path.join(__dirname, 'views'));
+Server.set('views',path.join(path.join(__dirname,'views')));
+Server.engine('mustache',mustache())
 
 
 Server.use(express.static(path.join(__dirname, '../public')))

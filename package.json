@@ -34,14 +34,17 @@
     "@types/pg": "^8.10.9",
     "@types/sequelize": "^4.28.18",
     "bcryptjs": "^2.4.3",
+    "copyfiles": "^2.4.1",
     "dotenv": "^16.3.1",
     "jest": "^29.7.0",
     "mustache": "^4.2.0",
     "ts-jest": "^29.1.1"
   },
   "scripts": {
+    "tsc": "tsc",
     "start-dev": "nodemon -e ts,json,mustache,css src/server.ts",
-    "start": "node dist/server.js"
+    "start-web": "node dist/server.js",
+    "postinstall": "npm run tsc && copyfiles -u 1 src/**/*.mustache dist/"
   },
   "author": "",
   "license": "ISC",
