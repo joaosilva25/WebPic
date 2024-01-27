@@ -43,8 +43,7 @@
   "scripts": {
     "tsc": "tsc",
     "start-dev": "nodemon -e ts,json,mustache,css src/server.ts",
-    "start-web": "node dist/server.js",
-    "postinstall": "npm run tsc && copyfiles -u 1 src/**/*.mustache dist/"
+    "start-web": "node dist/server.js"
   },
   "author": "",
   "license": "ISC",
