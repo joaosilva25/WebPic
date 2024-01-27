@@ -25,11 +25,9 @@ export const createUser=async(req:Request,res:Response) => {
             const hash=bcryptjs.hashSync(password,10)
 
             if(!showUsers) {
-                console.log('Hash antes do create:', hash);
                 let createdUser=await Users.create({username:username,email:email,password:hash})
                 if(req.session) {
                     let newSesh=req.session.username=createdUser.username
-                    console.log(`usuarioDaSessão:${newSesh}`);
                 }
                 
                 

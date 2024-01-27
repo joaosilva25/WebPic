@@ -19,10 +19,7 @@ const onUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* (
     let showAlertUser = false;
     let msgForUser;
     const { email, password } = req.body;
-    console.log(`campo de email:${email}`);
-    console.log(`campo de senha:${password}`);
     if (req.session && req.session.username) {
-        console.log('você já está logado');
         next();
     }
     else {
@@ -35,8 +32,6 @@ const onUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* (
                 if (passwordMatch) {
                     if (req.session) {
                         let nameSesh = req.session.username = userExist.username;
-                        console.log(`sessão conectada: ${nameSesh}`);
-                        console.log(`ID Session: ${req.sessionID}`);
                         next();
                     }
                 }
@@ -70,11 +65,9 @@ const onUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* (
 });
 exports.onUser = onUser;
 const userLogout = (req, res) => {
-    console.log(req.session);
     if (req.session) {
         let usernameDestroy = req.session.username;
         req.session.destroy((err) => {
-            console.log(`Sessão de ${usernameDestroy} encerrada com sucesso`);
             res.redirect('/');
         });
     }

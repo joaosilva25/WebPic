@@ -1,33 +1,43 @@
-{{>partials/header}}
- {{#showAlert}}
-     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>{{mensage}}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    {{/showAlert}}
-{{>partials/menu}}
-<div class="register_div d-flex justify-content-center align-items-center">
-    <form class="register_form d-flex" method="POST" action="/register">
-        <div class="row input_register">
-            <div class="name">
-                Username<br>
-                <input type="text" placeholder="Ex: Joaoheroi25" name="username">
-            </div>
-            <div class="email_adress">
-                Email Adress<br>
-                <input type="email" placeholder="Ex: joao25heroi@gmail.com" name="email">
-            </div>
-            <div class="password_user">
-                Password<br>
-                <input type="password" placeholder="Ex: 12453" name="password">
-            </div>
-            <div class="register_user">
-                <input type="submit" value="Register">
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/registerStyle.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap" rel="stylesheet">
+    <title>WEBPIC</title>
+</head>
+<body>  
+    <div class="container-fluid">
+        <header class="d-flex justify-content-between">
+            <a href='/'>
+                <div class="logo d-flex">
+                    <ion-icon name="camera-outline"></ion-icon>
+                    <h1>WebPic</h1>
+                </div>
+            </a>
+        </header>
+    {{#showAlert}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{mensage}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <div class="row image_register"></div>
-    </form>
-<div>
+    {{/showAlert}}
+        <div class="container_register">
+                <form class="register_form" method="POST" action="/register">
+                    <h2>Registre-se</h2>
+                    <h4>Registre-se para acessar os conteúdos exclusivos.</h4>
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="Email" placeholder="Email" name="password">
+                    <input type="password" placeholder="Senha" name="password">
+                    </br>
+                    <input class="btn_submit" type="submit" value="Registrar">
+                    <h5>Já possui sua conta? <a href='/'>Login<a></h5>
+                </form>
+        </div>
+    </div>
 
 
 

@@ -9,11 +9,8 @@ export const onUser = async(req:Request,res:Response,next:NextFunction)=> {
     let msgForUser;
 
     const {email,password} = req.body;
-    console.log(`campo de email:${email}`)
-    console.log(`campo de senha:${password}`)
 
     if(req.session && req.session.username) {
-        console.log('você já está logado')
         next()
     }
     else {
@@ -27,8 +24,6 @@ export const onUser = async(req:Request,res:Response,next:NextFunction)=> {
                 if (passwordMatch) {
                     if(req.session) {
                         let nameSesh=req.session.username=userExist.username
-                        console.log(`sessão conectada: ${nameSesh}`)
-                        console.log(`ID Session: ${req.sessionID}`)
                         next()
                     }
                 }
@@ -64,11 +59,9 @@ export const onUser = async(req:Request,res:Response,next:NextFunction)=> {
 }
 
 export const userLogout=(req: Request, res: Response) => {
-    console.log(req.session)
     if(req.session) {
         let usernameDestroy=req.session.username
         req.session.destroy((err)=>{
-            console.log(`Sessão de ${usernameDestroy} encerrada com sucesso`)
             res.redirect('/')
         })
     }

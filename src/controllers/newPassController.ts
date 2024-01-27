@@ -92,7 +92,6 @@ export const sendEmail = async(req:Request,res:Response,next:NextFunction)=> {
 
         if(req.session) {
             let sesh=req.session.user=userExist
-            console.log(`Sessão:${sesh}`)
         }
 
 
@@ -118,7 +117,6 @@ export const sendEmail = async(req:Request,res:Response,next:NextFunction)=> {
             let sendedEmail=await transport.sendMail(message)
 
             if(sendedEmail) {
-                console.log(sendedEmail)
                 return res.redirect('/new-password/codeConfirmation')
             }
         }
@@ -231,7 +229,6 @@ export const createNewPass=async(req:Request, res:Response)=> {
             let emailUser=req.session.user.email
 
             if (emailUser) {
-                console.log(`senha anterior ${req.session.user.password}`)
 
                 let passUpdate= await Users.updateOne(
                     {email:emailUser},
@@ -239,7 +236,6 @@ export const createNewPass=async(req:Request, res:Response)=> {
                 )
 
                 if (passUpdate) {
-                    console.log(`Senha atualizada: ${passHash}`)
                     return res.redirect('/')
                 }
 

@@ -1,0 +1,106 @@
+* {
+    box-shadow: border-box;
+    padding:0px;
+    margin:0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+body {
+    background-color:rgb(247, 247, 247);
+}
+
+header {
+    font-size:40px;
+    margin-top:30px;
+}
+
+
+.logo {
+    margin-left:80px;
+}
+
+.logo ion-icon {
+    color:rgb(124, 122, 122);
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    color:rgb(124, 122, 122);
+    font-size:15px;
+    margin-top:5px;
+    font-weight:bold;
+    text-shadow: 0px 8px rgba(76, 76, 240, 0.301);
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+    color:rgb(76, 76, 240);
+}
+
+h4 {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+h5 {
+    text-align: center;
+    font-size: 14px;
+    color:rgba(0, 0, 0, 0.473);
+    margin-top:20px;
+}
+
+.container_register {
+    display: flex;
+    position: relative;top:160px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.register_form {
+    background-color: rgb(255, 255, 255);
+    width:500px;
+    display: flex;
+    flex-direction: column;
+    height:600px;
+    border-radius: 20px;
+    padding:50px;
+    gap:20px;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.233);
+}
+
+.register_form input {
+    padding:8px;
+    border:none;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.233);
+    border-radius: 10px;
+    outline:none;
+    padding-left:10px;
+}
+
+.btn_submit {
+    background-color: rgb(76, 76, 240);
+    color:white;
+}
+
+.register_form input::placeholder {
+    color: rgba(0, 0, 0, 0.418);
+    padding-left:10px;
+}
+
+
+.alert {
+    position: relative;top:50px;
+    font-size:14px;
+    height:50px;
+    width:400px;
+    margin-left:100px;
+    background-color: rgba(76, 76, 240, 0.836);
+    color:white;
+}

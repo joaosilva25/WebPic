@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap" rel="stylesheet">
-    <title>WEBPIC</title>
+    <link rel="icon" type="image.png" href="/images/logoCam.png">
+    <title>WebPic</title>
 </head>
 <body>  
     <div class="container-fluid">
@@ -26,25 +27,34 @@
             </a>
             
             <div class="dropdown d-flex">
-                {{#showUserForm}}<button class="btn btn-secondary dropdown-toggle user_icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <ion-icon name="person-outline"></ion-icon>
-                </button>
+
+                {{#showUserForm}}
+                    <button class="btn btn-secondary dropdown-toggle user_icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </button>
                 {{/showUserForm}}
+
                 {{^showUserForm}}
-                    <ion-icon class="logged_User" name="person-circle-outline"></ion-icon>
+                    <ion-icon class="logged_User" name="person-outline"></ion-icon></br>
                 {{/showUserForm}}
+                
                 {{#showElements}}<p class="username_session">{{showName}}</p>{{/showElements}}
-                {{#showUserForm}}<form method="POST" action="/login">
+                
+                {{#showUserForm}}
+                <form method="POST" action="/login">
                     <ul class="dropdown-menu login">
-                        <p>Email</p>
-                        <li><input class="email" type="email" name='email'></li>
-                        <p>Password</p>
-                        <li><input class="senha" type="password" name='password'</li>
-                        <li class="forgotLink"><a href="/new-password">Forgot my password</a></li>
-                        <li><input type="submit" class="login_submit" value="Login"></li>
-                        <li><a href="/register" class="register">Register here</a></li>
+                        <div class="loginArea">
+                            <li><h2>Login</h2></li>
+                            <li><input class="email" placeholder="Email" type="email" name='email'></li>
+                            <li><input class="senha" placeholder="Senha" type="password" name='password'</li>
+                            <li class="forgotLink"><a href="/new-password">Esqueci minha Senha</a></li>
+                            <li><input type="submit" class="login_submit" value="Login"></li>
+                            <li>Registre-se <a href="/register" class="register">Aqui</a></li>
+                        </div>
                     </ul>
-                {{/showUserForm}}</form>
+                </form>
+                {{/showUserForm}}
+                
                 <button class="create_menu" onclick="menu()">
                     <ion-icon name="apps-outline"></ion-icon>
                 </button>

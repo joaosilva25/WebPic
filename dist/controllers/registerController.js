@@ -32,11 +32,9 @@ const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             });
             const hash = bcryptjs_1.default.hashSync(password, 10);
             if (!showUsers) {
-                console.log('Hash antes do create:', hash);
                 let createdUser = yield Users_1.default.create({ username: username, email: email, password: hash });
                 if (req.session) {
                     let newSesh = req.session.username = createdUser.username;
-                    console.log(`usuarioDaSessão:${newSesh}`);
                 }
                 if (createdUser) {
                     res.redirect('/');

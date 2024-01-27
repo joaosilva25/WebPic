@@ -88,7 +88,6 @@ const sendEmail = (req, res, next) => __awaiter(void 0, void 0, void 0, function
         yield userExist.save();
         if (req.session) {
             let sesh = req.session.user = userExist;
-            console.log(`Sessão:${sesh}`);
         }
         try {
             var transport = nodemailer_1.default.createTransport({
@@ -108,7 +107,6 @@ const sendEmail = (req, res, next) => __awaiter(void 0, void 0, void 0, function
             };
             let sendedEmail = yield transport.sendMail(message);
             if (sendedEmail) {
-                console.log(sendedEmail);
                 return res.redirect('/new-password/codeConfirmation');
             }
         }
@@ -204,10 +202,8 @@ const createNewPass = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         if (req.session) {
             let emailUser = req.session.user.email;
             if (emailUser) {
-                console.log(`senha anterior ${req.session.user.password}`);
                 let passUpdate = yield Users_1.default.updateOne({ email: emailUser }, { password: passHash });
                 if (passUpdate) {
-                    console.log(`Senha atualizada: ${passHash}`);
                     return res.redirect('/');
                 }
                 forUserMsg = 'Your password not was updated';
